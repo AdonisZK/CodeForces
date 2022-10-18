@@ -27,5 +27,12 @@
     "**/.*/**",
     "**/.vscode",
     "**/.vscode/**"
-  ]
+  ],
+  "files.associations": {
+    "*.json": "jsonc",
+    "*.html": "html",
+    "new": "cpp",
+    "iostream": "cpp",
+    "ostream": "cpp"
+  }
 }
