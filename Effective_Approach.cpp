@@ -16,7 +16,6 @@ int main()
         arr[num] = i;
     }
     cin >> query;
-
     while (query != 0)
     {
         cin >> search;
