@@ -1,28 +1,33 @@
 #include <iostream>
-#include <queue>
 
 using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    int n, m, i, temp, req, people[105], req[105], queue = 1;
+    int n, m, i, req, queue[1000], want[105], q, latest;
 
     cin >> n;
     cin >> m;
     for (i = 1; i <= n; i++)
     {
         cin >> req;
-        people[queue] = req;
-        queue++;
+        queue[i] = i;
+        want[i] = req;
     }
-    for (i = 1; i <= queue; i++)
+    q = n;
+    for (i = 1; i <= q; i++)
     {
-        temp = people[queue] - m;
-        if (temp > 0)
+        req = want[i] - m;
+        // cout << "antrian : " << i << " masih mau : " << req << endl;
+        if (req > 0)
         {
-            // TODO change to double stack
-            queue++;
+            q++;
+            queue[q] = queue[i];
+            want[q] = req;
+            // cout << "orang : " << queue[q] << " antrian : " << i << " kebelakang : " << q << endl;
         }
+        latest = queue[q];
     }
+    cout << latest << endl;
     return 0;
 }
