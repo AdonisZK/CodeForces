@@ -1,9 +1,12 @@
-#import <iostream>
 #include <iostream>
-int i, k, m, n, v, w;
-main()
+
+using namespace std;
+
+int main(int argc, char const *argv[])
 {
-    for (std::cin >> n >> m; i++ < n; (k - 1) / m < w ?: (v = i, w = (k - 1) / m))
-        std::cin >> k;
-    std::cout << v;
+    double m, n, p;
+    cin >> m >> n;
+    p = m / n;
+    cout << p << endl;
+    return 0;
 }
