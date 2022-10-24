@@ -4,6 +4,7 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
+    // test
     double m, n, p;
     cin >> m >> n;
     p = m / n;
