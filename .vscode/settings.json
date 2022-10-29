@@ -33,6 +33,7 @@
     "*.html": "html",
     "new": "cpp",
     "iostream": "cpp",
-    "ostream": "cpp"
+    "ostream": "cpp",
+    "algorithm": "cpp"
   }
 }
