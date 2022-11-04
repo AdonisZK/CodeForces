@@ -4,24 +4,30 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    string a;
-    long long int b, n, temp, i, limit, ans;
+    long long int a, b, n, temp, i, j, limit = 9, ans, flag = 0;
     cin >> a >> b >> n;
+    cout << a << endl;
     for (int i = 1; i <= n; i++)
     {
-        a += '0';
-        temp = stoll(a);
-        limit = (pow(10, i)) - 1;
-        ans = temp + i;
-        if (i == limit)
+        a = a * 10;
+        j = 0;
+        flag = 0;
+        while (flag == 0)
         {
-            cout << "-1" << endl;
+            temp = a + j;
+            if (j == limit)
+            {
+                cout << "-1" << endl;
+                exit(0);
+            }
+            if (temp % b == 0)
+            {
+                a = temp;
+                flag = 1;
+            }
+            j++;
         }
-        if (ans % b == 0)
-        {
-            ans = (ans * 10) + i;
-        }
-        i++;
     }
+    cout << a << endl;
     return 0;
 }

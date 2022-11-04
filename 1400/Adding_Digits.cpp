@@ -4,28 +4,32 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    string a;
-    long long int b, n, temp, i = 1, limit, ans;
+    long long int a, b, n, temp, i, j = 0, limit = 10, ans, flag = 0;
     cin >> a >> b >> n;
-    string mul(n, '0');
-    a += mul;
-    temp = stoll(a);
-    limit = (pow(10, n)) - 1;
-    ans = temp;
-    while (!NULL)
+    a = a * 10;
+    while (flag == 0)
     {
-        ans = temp + i;
-        if (i == limit)
+        temp = a + j;
+        if (j == limit)
         {
             cout << "-1" << endl;
             exit(0);
         }
-        if (ans % b == 0)
+        if (temp % b == 0)
         {
-            cout << ans << endl;
-            exit(0);
+            a = temp;
+            cout << a;
+            flag = 1;
         }
-        i++;
+        j++;
+    }
+
+    if (flag == 1)
+    {
+        for (int i = 0; i < n - 1; i++)
+        {
+            cout << '0';
+        }
     }
     return 0;
 }
