@@ -4,7 +4,7 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    long long int a, b, n, temp, i, j = 0, limit = 10, ans, flag = 0;
+    long long int a, b, n, temp, i, j = 0, limit = 10, flag = 0;
     cin >> a >> b >> n;
     a = a * 10;
     while (flag == 0)
@@ -26,7 +26,7 @@ int main(int argc, char const *argv[])
 
     if (flag == 1)
     {
-        for (int i = 0; i < n - 1; i++)
+        for (i = 0; i < n - 1; i++)
         {
             cout << '0';
         }
