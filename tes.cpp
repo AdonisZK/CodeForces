@@ -1,41 +1,20 @@
 #include <bits/stdc++.h>
-
 using namespace std;
-class MaterialNotAvailableException : public exception
-{
-public:
-    MaterialNotAvailableException() : exception("Material not available") {}
-};
-class Building
-{
-private:
-    int materialCount;
 
-public:
-    Building() { materialCount = 0; }
-    void addMaterial(int materials) { materialCount += materials; }
-    void buildConstruction()
-    {
-        if (materialCount == 0)
-            throw MaterialNotAvailableException();
-        else
-            std::cout << "Building has been built";
-    }
-};
-int main()
+int main(int argc, char const *argv[])
 {
-    Building b;
+    int n, temp;
+    unordered_set<int> arr;
+    cin >> n;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> temp;
+        arr.insert(temp);
+    }
 
-    try
+    for (auto const &i : arr)
     {
-        b.buildConstruction();
+        cout << i << " ";
     }
-    catch (MaterialNotAvailableException mae)
-    {
-        cout << mae.what() << endl;
-    }
-    catch (exception e)
-    {
-        cout << "exception caught" << endl;
-    }
+    return 0;
 }
