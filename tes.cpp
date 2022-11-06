@@ -1,20 +1,17 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
-int main(int argc, char const *argv[])
+int main()
 {
-    int n, temp;
-    unordered_set<int> arr;
-    cin >> n;
-    for (int i = 0; i < n; i++)
-    {
-        cin >> temp;
-        arr.insert(temp);
-    }
+    vector<int> myvector{1, 2, 3, 4, 5};
+    vector<int>::iterator it;
 
-    for (auto const &i : arr)
-    {
-        cout << i << " ";
-    }
+    it = myvector.begin();
+    myvector.erase(myvector.begin() + 2);
+
+    // Printing the Vector
+    for (auto it = myvector.begin(); it != myvector.end(); ++it)
+        cout << ' ' << *it;
     return 0;
 }
