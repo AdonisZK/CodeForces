@@ -1,17 +1,26 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main()
 {
-    vector<int> myvector{1, 2, 3, 4, 5};
-    vector<int>::iterator it;
 
-    it = myvector.begin();
-    myvector.erase(myvector.begin() + 2);
+    // Get the vector
+    vector<int> a = {1, 45, 54, 71, 76, 12};
 
-    // Printing the Vector
-    for (auto it = myvector.begin(); it != myvector.end(); ++it)
-        cout << ' ' << *it;
+    // Print the vector
+    cout << "Vector: ";
+    for (int i = 0; i < a.size(); i++)
+        cout << a[i] << " ";
+    cout << endl;
+
+    // Reverse the vector
+    reverse(a.begin(), a.end());
+
+    // Print the reversed vector
+    cout << "Reversed Vector: ";
+    for (int i = 0; i < a.size(); i++)
+        cout << a[i] << " ";
+    cout << endl;
+
     return 0;
 }
