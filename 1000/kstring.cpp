@@ -1,4 +1,4 @@
-//! really proud bout' this one, very efficient time and memory
+//! really proud bout' this one, very efficient time and memory wise
 
 #include <bits/stdc++.h>
 using namespace std;
