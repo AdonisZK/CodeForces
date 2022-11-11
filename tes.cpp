@@ -3,9 +3,9 @@ using namespace std;
 
 int main()
 {
-    int a, b, c, d;
-
-    a = b = c = d = 5;
-
-    cout << a << b << c << d << endl;
+    string a, b;
+    a = "amogus ";
+    b = "sugoma";
+    string c = a + b;
+    cout << c << endl;
 }
