@@ -3,10 +3,10 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    int n, m, i, temp, ansMin = 0, ansMax = 0;
+    int n, nTemp, m, i, temp, ansMin = 0, ansMax = 0;
     vector<int> min, max;
     cin >> n >> m;
-
+    nTemp = n;
     for (i = 0; i < m; i++)
     {
         cin >> temp;
@@ -29,12 +29,23 @@ int main(int argc, char const *argv[])
         sort(max.begin(), max.end(), greater<int>());
     }
 
-    // for (auto &i : min)
-    // {
-    //     cout << i + 1 << endl;
-    // }
+    n = nTemp;
 
-    cout << ansMax << endl;
+    for (auto &i : min)
+    {
+        if (n == 0)
+        {
+            break;
+        }
+        while (i != 0 && n != 0)
+        {
+            ansMin += i;
+            i--;
+            n--;
+        }
+    }
+
+    cout << ansMax << " " << ansMin << endl;
 
     return 0;
 }

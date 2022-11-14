@@ -1,2 +1,2 @@
 
-    for (auto &i : str2)
+        cout << "masuk" << endl;
