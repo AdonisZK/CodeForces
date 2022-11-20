@@ -28,7 +28,6 @@ int main(int argc, char const *argv[])
         {
             if (*it == i && i != ' ')
             {
-                // cout << *it << " == " << i << endl;
                 str1.erase(it);
                 flag = 1;
                 break;
@@ -36,7 +35,6 @@ int main(int argc, char const *argv[])
         }
         if (flag == 0 && i != ' ')
         {
-            // cout << i << endl;
             cout << "NO" << endl;
             exit(0);
         }
