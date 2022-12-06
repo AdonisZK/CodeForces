@@ -1,40 +1,60 @@
 #include <bits/stdc++.h>
-#include <fstream>
-
 using namespace std;
 
-int main()
+int main(int argc, char const *argv[])
 {
-    string data, dataSearch, x;
-    ifstream myFile;
-    string strcari = "was";
-    myFile.open("text.txt", ios::in);
-    int jkata = 0;
+    int n, i, top, bot, ans = 0;
+    vector<pair<int, int>> arr;
 
-    myFile.open("input.txt");
-    if (!myFile)
+    cin >> n;
+    if (n == 1)
     {
-        cout << "Unable to open file";
+        cout << "-1 " << endl;
         exit(0);
     }
-
-    while (getline(myFile, x))
+    for (i = 0; i < n; i++)
     {
-        cout << x << endl;
-    }
-
-    myFile.close();
-
-    while (cin >> dataSearch)
-    {
-        
-        if (dataSearch == strcari)
+        cin >> top >> bot;
+        if (i == 0)
         {
-            jkata = jkata + 1;
+            arr.push_back(make_pair(top, bot));
+            continue;
+        }
+        if ((top + arr[i - 1].second) % 2 == 0)
+        {
+            arr.push_back(make_pair(top, bot));
+        }
+        else if ((top + arr[i - 1].first) % 2 == 0)
+        {
+            swap(arr[i - 1].first, arr[i - 1].second);
+            arr.push_back(make_pair(top, bot));
+            ans++;
+        }
+        else if ((bot + arr[i - 1].second) % 2 == 0)
+        {
+            swap(arr[i].first, arr[i].second);
+            arr.push_back(make_pair(bot, top));
+            ans++;
+        }
+        else if ((bot + arr[i - 1].first) % 2 == 0)
+        {
+            swap(arr[i - 1].first, arr[i - 1].second);
+            swap(arr[i].first, arr[i].second);
+            arr.push_back(make_pair(bot, top));
+            ans += 2;
+        }
+        else
+        {
+            cout << "-1 " << endl;
+            exit(0);
         }
     }
-    cout << endl
-         << endl
-         << " jumlah kata yang ditemukan " << jkata << endl;
+
+    cout << ans << endl;
+    for (i = 0; i < n; i++)
+    {
+        cout << arr[i].first << ' ' << arr[i].second << endl;
+    }
+
     return 0;
 }
