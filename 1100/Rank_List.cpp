@@ -24,23 +24,15 @@ int main(int argc, char const *argv[])
              return x.second < y.second;
          });
 
-    for (auto &i : arr)
-    {
-        cout << i.first << " : " << i.second << endl;
-    }
-
-    for (i = 1; i < n; i++)
+    for (i = 1; i <= n; i++)
     {
 
         if (i == k)
         {
-            for (j = i; j <= n; j++)
+            for (j = i; j < n; j++)
             {
-                cout << "i : " << i - 1 << " j : " << j << endl;
-                cout << arr[j].first << " == " << arr[i - 1].first << " : " << arr[j].second << " == " << arr[i - 1].second << endl;
                 if (arr[j].first == arr[i - 1].first && arr[j].second == arr[i - 1].second)
                 {
-                    cout << "count++" << endl;
                     count++;
                 }
                 else
@@ -53,12 +45,10 @@ int main(int argc, char const *argv[])
         }
         if (arr[i].first == arr[i - 1].first && arr[i].second == arr[i - 1].second)
         {
-            cout << "count++" << endl;
             count++;
         }
         else
         {
-            cout << "reset" << endl;
             count = 1;
         }
     }
