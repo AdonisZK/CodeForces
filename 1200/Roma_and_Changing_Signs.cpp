@@ -22,7 +22,7 @@ int main(int argc, char const *argv[])
         {
             if (i == 0)
             {
-                ans -= v[0];
+                ans -= v[i];
             }
             else
             {
