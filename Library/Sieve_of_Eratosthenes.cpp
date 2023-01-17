@@ -3,14 +3,14 @@ using namespace std;
 
 vector<int> primes;
 int spf[100000 + 9];
-int sieve(int N)
+int sieve(int n)
 {
-    for (int i = 2; i < N; i++)
+    for (int i = 2; i < n; i++)
     {
         if (spf[i] == 0)
             spf[i] = i, primes.push_back(i);
         int sz = primes.size();
-        for (int j = 0; j < sz && i * primes[j] < N && primes[j] <= spf[i]; j++)
+        for (int j = 0; j < sz && i * primes[j] < n && primes[j] <= spf[i]; j++)
         {
             spf[i * primes[j]] = primes[j];
         }
@@ -19,12 +19,13 @@ int sieve(int N)
 
 int main(int argc, char const *argv[])
 {
-    int N;
-    cin >> N;
-    sieve(N);
-    for (int i = 0; i < N; i++)
+    int n;
+    cin >> n;
+    sieve(n);
+    for (int i = 1; i <= n; i++)
     {
-        cout << spf[i] << endl;
+        if (spf[i] == i)
+            cout << spf[i] << endl;
     }
 
     return 0;

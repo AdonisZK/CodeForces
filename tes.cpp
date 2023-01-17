@@ -1,9 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+const int N = 1e2 + 9;
+
+int spf[N];
 vector<int> primes;
-int spf[100000 + 9];
-int sieve(int N)
+void sieve()
 {
     for (int i = 2; i < N; i++)
     {
@@ -17,15 +19,16 @@ int sieve(int N)
     }
 }
 
-int main(int argc, char const *argv[])
+int32_t main()
 {
-    int N;
-    cin >> N;
-    sieve(N);
-    for (int i = 0; i < N; i++)
+    sieve();
+    for (int i = 0; i < 50; i++)
     {
         cout << spf[i] << endl;
     }
+
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
 
     return 0;
 }
