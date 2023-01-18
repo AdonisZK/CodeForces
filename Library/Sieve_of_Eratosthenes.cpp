@@ -1,31 +1,30 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+const int N = 1e6 + 9;
+
+int spf[N];
 vector<int> primes;
-int spf[100000 + 9];
-int sieve(int n)
+void sieve()
 {
-    for (int i = 2; i < n; i++)
+    for (int i = 2; i < N; i++)
     {
         if (spf[i] == 0)
             spf[i] = i, primes.push_back(i);
         int sz = primes.size();
-        for (int j = 0; j < sz && i * primes[j] < n && primes[j] <= spf[i]; j++)
+        for (int j = 0; j < sz && i * primes[j] < N && primes[j] <= spf[i]; j++)
         {
             spf[i * primes[j]] = primes[j];
         }
     }
 }
 
-int main(int argc, char const *argv[])
+int32_t main()
 {
-    int n;
-    cin >> n;
-    sieve(n);
-    for (int i = 1; i <= n; i++)
+    sieve();
+    for (int i = 0; i < 50; i++)
     {
-        if (spf[i] == i)
-            cout << spf[i] << endl;
+        cout << spf[i] << endl;
     }
 
     return 0;
