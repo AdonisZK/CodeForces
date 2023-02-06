@@ -1,8 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main(int argc, char const *argv[])
+int main()
 {
-    
-    return 0;
+    int n;
+    cin >> n;
+
+    cout << "0 "
+         << "0 " << n << endl;
 }
