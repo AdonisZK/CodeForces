@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int N = 1e2 + 9;
+const int N = 1e6 + 9;
 
 int spf[N];
 vector<int> primes;
@@ -21,24 +21,11 @@ void sieve()
 
 int32_t main()
 {
-    time_t start, end;
-    time(&start);
     sieve();
     for (int i = 0; i < 50; i++)
     {
         cout << spf[i] << endl;
     }
-
-    time(&end);
-
-    // Calculating total time taken by the program.
-    double time_taken = double(end - start);
-    cout << "Time taken by program is : " << fixed
-         << time_taken << setprecision(5);
-    cout << " sec " << endl;
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-    // tes
 
     return 0;
 }
