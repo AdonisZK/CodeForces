@@ -1,44 +1,68 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
-const int N = 1e2 + 9;
-
-int spf[N];
-vector<int> primes;
-void sieve()
+struct fullname
 {
-    for (int i = 2; i < N; i++)
+    string firstname;
+    string lastname;
+};
+
+struct data
+{
+    fullname name;
+    int uts, uas;
+    float final;
+};
+
+data theStudent[10];
+
+int main()
+{
+    int n, i, flag = 0;
+    string input;
+    bool found = false;
+    cout << "Jumlah mahasiswa: ";
+    cin >> n;
+
+    cout << "Data mahasiswa" << endl;
+    for (int i = 0; i < n; i++)
     {
-        if (spf[i] == 0)
-            spf[i] = i, primes.push_back(i);
-        int sz = primes.size();
-        for (int j = 0; j < sz && i * primes[j] < N && primes[j] <= spf[i]; j++)
+
+        cout << "Nama depan: ";
+        cin >> theStudent[i].name.firstname;
+        cout << "Nama belakang: ";
+        cin >> theStudent[i].name.lastname;
+        cout << "Nilai UTS: ";
+        cin >> theStudent[i].uts;
+        cout << "Nilai UAS: ";
+        cin >> theStudent[i].uas;
+        cout << endl;
+    }
+
+    cout << endl;
+    cout << "\n=========================\n";
+    cout << "Input nama depan mahasiswa: ";
+    cin >> input;
+
+    for (int i = 0; i < n; i++)
+    {
+        if (input == theStudent[i].name.firstname || input == theStudent[i].name.lastname)
         {
-            spf[i * primes[j]] = primes[j];
+            theStudent[i].final = (0.4 * theStudent[i].uts) + (0.6 * theStudent[i].uas);
+
+            cout << "Nama mahasiswa: " << theStudent[i].name.firstname << " " << theStudent[i].name.lastname << endl;
+            cout << "Nilai UTS: " << theStudent[i].uts << endl;
+            cout << "Nilai UAS: " << theStudent[i].uas << endl;
+            cout << "Nilai Akhir: " << theStudent[i].final << endl;
+            cout << endl;
+            flag == 1;
+            break;
         }
     }
-}
-
-int32_t main()
-{
-    time_t start, end;
-    time(&start);
-    sieve();
-    for (int i = 0; i < 50; i++)
+    if (flag == 0)
     {
-        cout << spf[i] << endl;
+        cout << "Input tidak valid" << endl;
     }
-
-    time(&end);
-
-    // Calculating total time taken by the program.
-    double time_taken = double(end - start);
-    cout << "Time taken by program is : " << fixed
-         << time_taken << setprecision(5);
-    cout << " sec " << endl;
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-    // tes
-
+    getchar();
     return 0;
 }
