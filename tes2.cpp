@@ -1,34 +1,20 @@
-#include <bits/stdc++.h>
+#define MOD 1000000007
 
+#include <bits/stdc++.h>
 using namespace std;
 
-int main()
+int main(int argc, char const *argv[])
 {
-    string data, dataSearch;
-    string strcari = "was";
-    freopen("input.txt", "r", stdin);
+    int a, b, c, x, y, z, sum;
+    cin >> a >> b >> c;
 
-    int jkata = 0;
+    x = sqrt((a * c) / b);
+    y = sqrt((a * b) / c);
+    z = sqrt((b * c) / a);
 
-    while (cin >> dataSearch)
-    {
-        if (dataSearch == "-")
-        {
-            cout << endl;
-        }
-        else
-        {
-            cout << dataSearch << " ";
-        }
-
-        if (dataSearch == strcari)
-        {
-            jkata = jkata + 1;
-        }
-    }
-    cout << endl
-         << endl
-         << " jumlah kata yang ditemukan " << jkata << endl;
+    sum = 4 * (x + y + z);
+    cout << x << " " << y << " " << z << endl;
+    cout << sum << endl;
 
     return 0;
 }
